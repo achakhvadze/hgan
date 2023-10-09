@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import pytorch_lightning as pl
-from models.utils import ConvBlock, ResidualBlock, TransConvBlock, get_norm_layer
+from hgan.models.utils import ConvBlock, ResidualBlock, TransConvBlock, get_norm_layer
 
 class Resnet(nn.Module):
     """Resnet-based generator consisting of a downsampling step (7x7 conv to encode color features

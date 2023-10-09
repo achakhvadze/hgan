@@ -12,12 +12,12 @@ from itertools import chain
 from argparse import ArgumentParser, Namespace
 
 ## Model-specific imports
-from models.discriminator import discriminator
-from models.generator import generator
-from models.inception import InceptionV3
-from models.vgg import Vgg16
-from models.silnet import SilNet
-import models.utils as mutils
+from hgan.models.discriminator import discriminator
+from hgan.models.generator import generator
+from hgan.models.inception import InceptionV3
+from hgan.models.vgg import Vgg16
+from hgan.models.silnet import SilNet
+import hgan.models.utils as mutils
 
 ## Metrics
 from metrics.fid import fid

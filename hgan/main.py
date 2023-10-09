@@ -11,7 +11,7 @@ from models.silnet import SilNet
 from models.handgan import ValidationCallback, PrintModels, TestCallback
 
 # Dataloader
-from datasets.dataloader import MultipleDataModule
+from datasets.dataloader import HandDatastoreDataModule
 
 from argparse import ArgumentParser
 
@@ -20,7 +20,7 @@ DATASETS = ["real_hands", "synth_hands"]
 parser = ArgumentParser()
 
 if __name__ == '__main__':
-    parser = MultipleDataModule.add_model_specific_args(parser, DATASETS)
+    parser = HandDatastoreDataModule.add_model_specific_args(parser, DATASETS)
     parser = HandGAN.add_model_specific_args(parser)
 
     if SILNET:
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
 
     # Datamodule
-    dm = MultipleDataModule(DATASETS, args)
+    dm = HandDatastoreDataModule(DATASETS, args)
     dm.prepare_data()
     dm.setup()
 

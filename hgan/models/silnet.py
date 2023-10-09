@@ -8,8 +8,8 @@ from torchvision.utils import make_grid
 import pytorch_lightning as pl
 
 # Model imports
-from models.unet import UNet
-import models.utils as mutils
+from hgan.models.unet import UNet
+import hgan.models.utils as mutils
 
 # Other basic imports
 from argparse import ArgumentParser, Namespace
@@ -28,7 +28,7 @@ class SilNet(pl.LightningModule):
         init = mutils.Initializer(init_type=hparams.init_type,
                                   init_gain=hparams.init_gain)
 
-        self.hparams = hparams
+        self.hparams.update(hparams)
         self.unet = init(UNet(num_classes=1, input_channels=3, num_layers=3, features_start=64))
         mutils.set_requires_grad(self.unet, requires_grad=requires_grad)
 

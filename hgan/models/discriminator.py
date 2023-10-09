@@ -2,7 +2,7 @@ import torch
 from math import log
 import torch.nn as nn
 import pytorch_lightning as pl
-from models.utils import ConvBlock, get_norm_layer
+from hgan.models.utils import ConvBlock, get_norm_layer
 
 class PatchGAN_Discriminator(pl.LightningModule):
     """PatchGAN discriminator. It outputs an one channel prediction map
